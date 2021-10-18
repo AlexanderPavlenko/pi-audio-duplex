@@ -1,0 +1,3 @@
+
+host: sleep 2; nc 192.168.44.241 2150 | sox --input-buffer 1000000 -V1 -t wav - -t coreaudio "BlackHole 16ch" remix 0 0 1 2
+pi: ssh pi-w 'arecord --disable-resample --disable-channels --disable-format --disable-softvol -f cd - | nc -l 2150'
