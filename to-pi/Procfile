@@ -1,3 +1,0 @@
-
-host: sleep 2; sox -V1 -t coreaudio "BlackHole 16ch" -t wav -b 16 - remix 1 2 | nc 192.168.44.241 2150
-pi: ssh pi-w 'nc -l 2150 | aplay --disable-resample --disable-channels --disable-format --disable-softvol -'

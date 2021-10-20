@@ -1,5 +1,0 @@
-
-host: sleep 2; sox -V1 -t coreaudio "BlackHole 16ch" -t wav -b 24 - remix 1 2 | nc 192.168.44.4 2150 | sox --input-buffer 1000000 -V1 -t wav - -t coreaudio "BlackHole 16ch" remix 0 0 1 2
-pi: ssh -S none root@pi-pad 'nice -n -20 arecord --disable-resample --disable-channels --disable-format --disable-softvol --format S24_3LE --rate 44100 --channels 2 --file-type wav - | nice -n -20 nc -l 2150 | nice -n -20 aplay --disable-resample --disable-channels --disable-format --disable-softvol -'
-
-# on exit? : killall nc arecord aplay
