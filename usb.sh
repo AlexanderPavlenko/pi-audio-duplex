@@ -25,7 +25,7 @@ ln -s functions/ecm.usb0 configs/c.1/
 # UAC2 audio
 mkdir -p functions/uac2.usb0
 echo 3 > functions/uac2.usb0/c_ssize
-echo 2 > functions/uac2.usb0/p_ssize
+echo 3 > functions/uac2.usb0/p_ssize
 echo 44100 > functions/uac2.usb0/c_srate
 echo 44100 > functions/uac2.usb0/p_srate
 ln -s functions/uac2.usb0 configs/c.1/
