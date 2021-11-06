@@ -4,7 +4,6 @@ composite of Ethernet and Audio input/output.
 Alternatives:
 
 * [Dante AVIO Adapter](https://www.audinate.com/products/devices/dante-avio#USB) – seems cool and pricey
-* Zoom H2N recorder – wired input only, analog line
 * Apple IDAM – wired output only, lossless
 * [Audreio](https://audre.io/) – seems outdated without Audiobus integration
 
