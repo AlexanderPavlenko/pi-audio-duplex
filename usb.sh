@@ -16,6 +16,7 @@ echo "ECM + UAC2" > configs/c.1/strings/0x409/configuration
 echo 250 > configs/c.1/MaxPower
 
 # Ethernet
+# https://www.kernel.org/doc/html/latest/usb/gadget-testing.html#ecm-function
 mkdir -p functions/ecm.usb0
 # first byte of address must be even
 echo "48:6f:73:74:50:43" > functions/ecm.usb0/host_addr
@@ -23,11 +24,18 @@ echo "42:61:64:55:53:42" > functions/ecm.usb0/dev_addr
 ln -s functions/ecm.usb0 configs/c.1/
 
 # UAC2 audio
+# https://www.kernel.org/doc/html/latest/usb/gadget-testing.html#uac2-function
 mkdir -p functions/uac2.usb0
 echo 3 > functions/uac2.usb0/c_ssize
 echo 3 > functions/uac2.usb0/p_ssize
 echo 44100 > functions/uac2.usb0/c_srate
 echo 44100 > functions/uac2.usb0/p_srate
+echo 3 > functions/uac2.usb1/с_chmask
+echo 3 > functions/uac2.usb1/p_chmask
+# todo: capture more channels via the Raspberry Pi Zero 2
+# USB Device Class Definition for Audio Devices: 4.1 Audio Channel Cluster Descriptor
+# "110011".to_i(2) = 51
+#echo 51 > functions/uac2.usb0/c_chmask
 ln -s functions/uac2.usb0 configs/c.1/
 
 # End functions

@@ -38,3 +38,5 @@ pass: raspberry
 
 # after deploy.sh change cmdline.txt: modules-load=dwc2,libcomposite
 ```
+
+`RpIn` and `RpOut` are [BlackHole Drivers](https://github.com/ExistentialAudio/BlackHole/wiki/Running-Multiple-BlackHole-Drivers).
