@@ -30,8 +30,8 @@ echo 3 > functions/uac2.usb0/c_ssize
 echo 3 > functions/uac2.usb0/p_ssize
 echo 44100 > functions/uac2.usb0/c_srate
 echo 44100 > functions/uac2.usb0/p_srate
-echo 3 > functions/uac2.usb1/с_chmask
-echo 3 > functions/uac2.usb1/p_chmask
+echo 3 > functions/uac2.usb0/с_chmask
+echo 3 > functions/uac2.usb0/p_chmask
 # todo: capture more channels via the Raspberry Pi Zero 2
 # USB Device Class Definition for Audio Devices: 4.1 Audio Channel Cluster Descriptor
 # "110011".to_i(2) = 51
