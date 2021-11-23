@@ -1,5 +1,7 @@
-This code allows to use Raspberry Pi Zero as a USB gadget
-composite of Ethernet and Audio input/output.
+This code allows to use [Raspberry Pi Zero 2](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) as a USB gadget
+composite of Ethernet and multichannel Audio input/output.
+
+[Branch for Raspberry Pi Zero.](https://github.com/AlexanderPavlenko/pi-audio-duplex/tree/zero-v1)
 
 Alternatives:
 
@@ -24,12 +26,8 @@ Raspberry Pi bootstrap on macOS:
 # on raspberry A+, maybe: dtoverlay=dwc2,dr_mode=peripheral
 # https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README#L800
 
-# to disable LED add to /boot/config.txt
-dtparam=act_led_trigger=none
-dtparam=act_led_activelow=on
-
 # to disable wireless add to /boot/config.txt
-dtoverlay=disable-wifi
+#dtoverlay=disable-wifi
 dtoverlay=disable-bt
 
 ping raspberrypi.local

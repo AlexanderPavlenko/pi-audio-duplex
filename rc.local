@@ -15,4 +15,7 @@
 
 tvservice -o || echo "cannot disable hdmi?"
 
+# LED on when under-voltage detected?
+echo input > /sys/class/leds/led0/trigger
+
 exit 0
