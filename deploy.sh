@@ -1,6 +1,8 @@
 #!/bin/zsh
 
-PI=root@pi
-scp rc.local $PI:/etc/rc.local
-scp usb.sh $PI:/root/usb.sh
-ssh $PI reboot
+PI=pi-wifi
+scp rc.local root@$PI:/etc/
+scp usb.sh root@$PI:/root/
+scp jack.sh pi@$PI:/home/pi/
+scp stream.RPP pi@$PI:/home/pi/
+ssh root@$PI reboot

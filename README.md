@@ -3,6 +3,10 @@ composite of Ethernet and multichannel Audio input/output.
 
 [Branch for Raspberry Pi Zero.](https://github.com/AlexanderPavlenko/pi-audio-duplex/tree/zero-v1)
 
+[Branch for Raspberry Pi Zero 2.](https://github.com/AlexanderPavlenko/pi-audio-duplex/tree/zero-v2)
+
+Turns out the Zero 2 is powerful enough to run [Reaper (armv7l)](https://www.reaper.fm/download.php) and its [ReaStream](https://www.reaper.fm/reaplugs/) plugin with low latency, even over the built-in WiFi.
+
 Alternatives:
 
 * [Dante AVIO Adapter](https://www.audinate.com/products/devices/dante-avio#USB) – seems cool and pricey
@@ -38,3 +42,15 @@ pass: raspberry
 ```
 
 `RpIn` and `RpOut` are [BlackHole Drivers](https://github.com/ExistentialAudio/BlackHole/wiki/Running-Multiple-BlackHole-Drivers).
+
+### Using Reaper via SSH X11 forwarding
+```shell
+# Pi
+apt install xserver-xorg # probably only for `xauth`
+
+# Mac
+open -a xquartz # "Allow network" in Preferences / Security
+scp ~/.Xauthority pi@pi-wifi:/home/pi/.Xauthority
+export DISPLAY=:0 ; ssh -v -X -S none pi@pi-wifi
+reaper_linux_armv7l/install-reaper.sh # [R]un REAPER
+```
