@@ -15,8 +15,8 @@
 
 tvservice -o || echo "cannot disable hdmi?"
 
-# LED on when under-voltage detected?
-echo input > /sys/class/leds/led0/trigger
+echo none > /sys/class/leds/led0/trigger
+echo none > /sys/class/leds/led1/trigger
 
 # maybe this will help against the "wlan0: carrier lost"
 /sbin/iw dev wlan0 set power_save off

@@ -31,7 +31,12 @@ echo 3 > functions/uac2.usb0/p_ssize
 echo 48000 > functions/uac2.usb0/c_srate
 echo 48000 > functions/uac2.usb0/p_srate
 # USB Device Class Definition for Audio Devices: 4.1 Audio Channel Cluster Descriptor
-# "110011".to_i(2) = 51 # Back Right, Left, -, -, Front Right, Left
+# fail: "11011110011".to_i(2) = 1779 # Side Right, Side Left, -, Front Right of Center, Front Left of Center, Back Right, Left, -, -, Front Right, Left
+# fail: "111110111".to_i(2) = 503 # Back Center, Front Right of Center, Front Left of Center, Back Right, Left, -, Front Center, Front Right, Left
+# fail: "11111111".to_i(2) = 255
+# fail: "1111111111".to_i(2) = 1023
+# works: "11110011".to_i(2) = 243 # Front Right of Center, Front Left of Center, Back Right, Left, -, -, Front Right, Left
+# but ALSA fails: "cannot set period size to 256 frames for capture"
 echo 51 > functions/uac2.usb0/c_chmask
 echo 3 > functions/uac2.usb0/p_chmask
 ln -s functions/uac2.usb0 configs/c.1/
