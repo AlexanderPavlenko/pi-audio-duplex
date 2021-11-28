@@ -5,13 +5,21 @@ composite of Ethernet and multichannel Audio input/output.
 
 [Branch for Raspberry Pi Zero 2.](https://github.com/AlexanderPavlenko/pi-audio-duplex/tree/zero-v2)
 
-Turns out the Zero 2 is powerful enough to run [Reaper (armv7l)](https://www.reaper.fm/download.php) and its [ReaStream](https://www.reaper.fm/reaplugs/) plugin with low latency, even over the built-in WiFi.
+Turns out the Zero 2 is powerful enough to run [Reaper (armv7l)](https://www.reaper.fm/download.php) and its [ReaStream](https://www.reaper.fm/reaplugs/) plugin with low latency, even over the built-in WiFi (depends on signal strength).
+
+Reaper preferences:
+* Audio / Device
+  * Audio system: JACK
+  * Auto-start jackd, launch command: /home/pi/jack.sh
+  * Auto-connect
 
 Alternatives:
 
 * [Dante AVIO Adapter](https://www.audinate.com/products/devices/dante-avio#USB) – seems cool and pricey
+* [iConnectivity AUDIO4c](https://www.iconnectivity.com/audio4c) – multifunctional, key features include "routes audio digitally between two computing devices"
 * Apple IDAM – wired output only, lossless
 * [Audreio](https://audre.io/) – seems outdated without Audiobus integration
+* [studiomux](https://apps.apple.com/de/app/studiomux/id966554837) – compatibility issues, redundant features
 
 Credits:
 * [iSticktoit.net - Composite USB gadgets on the Raspberry Pi Zero](https://www.isticktoit.net/?p=1383)
