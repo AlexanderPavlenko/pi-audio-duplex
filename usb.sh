@@ -10,7 +10,7 @@ echo 0x0200 > bcdUSB # USB2
 mkdir -p strings/0x409
 echo "fedcba9876543210" > strings/0x409/serialnumber
 echo "Lexi" > strings/0x409/manufacturer
-echo "Raspberry Pi Zero" > strings/0x409/product
+echo "Raspberry Pi" > strings/0x409/product
 mkdir -p configs/c.1/strings/0x409
 echo "ECM + UAC2" > configs/c.1/strings/0x409/configuration
 echo 250 > configs/c.1/MaxPower
