@@ -1,7 +1,5 @@
 This code allows to use [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) as a USB gadget
-composite of Ethernet and multichannel Audio input/output.
-
-The Pi 4 is powerful enough to run [Reaper (armv7l)](https://www.reaper.fm/download.php) and its [ReaStream](https://www.reaper.fm/reaplugs/) plugin with low latency over the built-in Ethernet.
+composite of multichannel Audio input/output and Ethernet, meaning it can transform an iPad (or any other [UAC2](https://en.wikipedia.org/wiki/USB#Audio_streaming) compatible device) into a VST effect/instrument integrated into a desktop DAW – the Pi 4 is powerful enough to run [Reaper (armv7l)](https://www.reaper.fm/download.php) and its [ReaStream](https://www.reaper.fm/reaplugs/) plugin with low latency over the built-in Ethernet.
 
 ### Other versions
 * [Pi Zero](https://github.com/AlexanderPavlenko/pi-audio-duplex/tree/zero-v1)
@@ -58,7 +56,7 @@ apt install jackd2 xserver-xorg fontconfig libgtk-3-dev
 open -a xquartz # "Allow network" in Preferences / Security
 scp ~/.Xauthority pi@pi4:.
 export DISPLAY=:0 ; ssh -v -X -S none pi@pi4
-reaper_linux_armv7l/install-reaper.sh # [R]un REAPER
+sudo nice -n -20 sudo -u pi reaper_linux_armv7l/install-reaper.sh # [R]un REAPER
 ```
 
 #### Preferences

@@ -1,1 +1,1 @@
-pi: ssh -S none pi@pi4 'killall -v -s SIGKILL reaper jackd; sudo nice -n -20 sudo -u pi /home/pi/reaper_linux_armv7l/REAPER/reaper /home/pi/stream.RPP'
+pi: ssh -S none pi@pi4 'killall -v -s SIGKILL reaper jackd; sudo nice -n -20 sudo -u pi /home/pi/reaper_linux_armv7l/REAPER/reaper -nosplash /home/pi/stream.RPP'

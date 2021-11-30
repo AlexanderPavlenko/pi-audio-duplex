@@ -2,6 +2,7 @@
 
 cd /sys/kernel/config/usb_gadget/ || fail
 mkdir -p lexi && cd lexi || fail
+#rm -rf configs/c.1/*.usb0
 
 echo 0x1d6b > idVendor # Linux Foundation
 echo 0x0104 > idProduct # Multifunction Composite Gadget
@@ -26,19 +27,24 @@ ln -s functions/ecm.usb0 configs/c.1/
 # UAC2 audio
 # https://www.kernel.org/doc/html/latest/usb/gadget-testing.html#uac2-function
 mkdir -p functions/uac2.usb0
-echo 3 > functions/uac2.usb0/c_ssize
-echo 3 > functions/uac2.usb0/p_ssize
 echo 48000 > functions/uac2.usb0/c_srate
 echo 48000 > functions/uac2.usb0/p_srate
+
 # USB Device Class Definition for Audio Devices: 4.1 Audio Channel Cluster Descriptor
-# fail: "11011110011".to_i(2) = 1779 # Side Right, Side Left, -, Front Right of Center, Front Left of Center, Back Right, Left, -, -, Front Right, Left
-# fail: "111110111".to_i(2) = 503 # Back Center, Front Right of Center, Front Left of Center, Back Right, Left, -, Front Center, Front Right, Left
-# fail: "11111111".to_i(2) = 255
-# fail: "1111111111".to_i(2) = 1023
-# works: "11110011".to_i(2) = 243 # Front Right of Center, Front Left of Center, Back Right, Left, -, -, Front Right, Left
-# but ALSA fails: "cannot set period size to 256 frames for capture"
-echo 51 > functions/uac2.usb0/c_chmask
+
+## Quality: 24 bit, 4 input + 2 output channels
+echo 51 > functions/uac2.usb0/c_chmask # "110011".to_i(2)
 echo 3 > functions/uac2.usb0/p_chmask
+echo 3 > functions/uac2.usb0/c_ssize
+echo 3 > functions/uac2.usb0/p_ssize
+
+## Quantity: 16 bit, 8 input + 8 output channels
+# fixme: 0 inputs in Reaper...
+#echo 1779 > functions/uac2.usb0/c_chmask # "11011110011".to_i(2)
+#echo 1779 > functions/uac2.usb0/p_chmask
+#echo 2 > functions/uac2.usb0/c_ssize
+#echo 2 > functions/uac2.usb0/p_ssize
+
 ln -s functions/uac2.usb0 configs/c.1/
 
 # End functions
