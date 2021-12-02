@@ -45,7 +45,7 @@ raspi-config # Advanced Options / Bootloader Version / Latest
 >
 > Details of how to check/update the bootloader can be found [here](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-4-boot-eeprom).
 >
-> – [Source](https://www.hardill.me.uk/wordpress/2019/11/02/pi4-usb-c-gadget/)
+> – [source](https://www.hardill.me.uk/wordpress/2019/11/02/pi4-usb-c-gadget/)
 
 ### Using Reaper via SSH X11 forwarding
 ```shell
@@ -76,6 +76,14 @@ Once configured, Reaper can run without GUI:
 * Apple IDAM – wired output only, lossless
 * [Audreio](https://audre.io/) – seems outdated without Audiobus integration
 * [studiomux](https://apps.apple.com/de/app/studiomux/id966554837) – compatibility issues, redundant features
+
+### RTP MIDI
+
+> iOS restriction that per device we can only use 1 MIDI Network Session and it's an iOS behavior that copies the data over / merges them to all connected MIDI Network Sessions under the hood
+>
+> – [source](https://forum.audiob.us/discussion/39657/routing-midi-data-onto-2-or-more-midi-network-sessions-fails)
+
+Seems to be the same problem on iPadOS. But if [there is](https://github.com/davidmoreno/rtpmidid#linux) a better RTP MIDI implementation for the Raspberry Pi OS, it may be used to relay the multiple different [MPE](https://www.midi.org/midi-articles/midi-polyphonic-expression-mpe) sessions, presented as a [USB MIDI](https://www.kernel.org/doc/html/latest/usb/gadget-testing.html#midi-function) ports.
 
 ### Credits
 * [iSticktoit.net - Composite USB gadgets on the Raspberry Pi Zero](https://www.isticktoit.net/?p=1383)
